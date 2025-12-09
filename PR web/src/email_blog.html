@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Safety Basics</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #222;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 0 24px 0;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+    }
+    .main-nav {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: #222;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #888;
+    }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 0 40px 0;
+    }
+    .featured-post {
+      margin-bottom: 48px;
+    }
+    .featured-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 18px;
+    }
+    .post-meta {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .post-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.01em;
+    }
+    .post-excerpt {
+      margin: 0 0 16px 0;
+      color: #444;
+      font-size: 1.05rem;
+    }
+    .comment-link {
+      color: #888;
+      font-size: 0.95rem;
+      text-decoration: underline;
+    }
+    .post-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .post-card {
+      background: #fafbfc;
+      border-radius: 2px;
+      padding: 0 0 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .post-thumb {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 2px 2px 0 0;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 900px) {
+      .site-header, main { max-width: 98vw; }
+      .post-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">TechWise</div>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+    </nav>
+  </header>
+  <main>
+    <article class="featured-post">
+      <img src="images/article-pics/email.webp" alt="Email Safety Basics" class="featured-img">
+      <div class="post-meta">Cybersecurity</div>
+      <h1 class="post-title">Email Safety Basics</h1>
+      <div class="post-excerpt">
+        <p>Ang mga email ay mahalaga sa ating komunikasyon, ngunit maaari rin itong maging daan ng mga cyberthreats tulad ng phishing at malware. Sa gabay na ito, matututuhan mo ang mga pangunahing hakbang upang mapanatili ang kaligtasan ng iyong email at maiwasan ang hindi awtorisadong pag-access.</p>
+        <h2 class="post-title" style="font-size: 1.2rem; font-weight: 500; margin-top: 20px;">Paano Kilalanin ang Hindi Ligtas na Email</h2>
+        <ul style="list-style-type: decimal; padding-left: 20px; margin: 10px 0;">
+          <li><strong>Hindi Kilalang Sender</strong> - Iwasan ang pagbubukas ng email mula sa hindi pamilyar na address.</li>
+          <li><strong>Kakaibang Grammar o Spelling</strong> - Magduda kung ang email ay may mga maling gramatika o di pangkaraniwang spelling.</li>
+          <li><strong>Pananakot o Pagmamadali</strong> - Halimbawa, "Magbayad ka na ngayon o mawawala ang account mo!" ay isang pulang bandila.</li>
+          <li><strong>Hindi Tumutugma ang Link</strong> - I-hover ang link upang suriin kung ang tunay na URL ay kahina-hinala.</li>
+        </ul>
+        <h2 class="post-title" style="font-size: 1.2rem; font-weight: 500; margin-top: 20px;">Paano Mapoprotektahan ang Iyong Email</h2>
+        <ul style="list-style-type: disc; padding-left: 20px; margin: 10px 0;">
+          <li>Gumamit ng malakas na password at i-enable ang two-factor authentication (2FA).</li>
+          <li>Huwag mag-click ng hindi kilalang link o mag-download ng hindi tiyak na attachment.</li>
+          <li>Palaging i-update ang iyong email security settings at software.</li>
+          <li>I-report ang kahina-hinalang email sa iyong email provider.</li>
+          <li>Gamitin ang opisyal na website ng serbisyo sa halip na mag-click ng link mula sa email.</li>
+        </ul>
+        <p>Matuto nang higit pa tungkol sa cybersecurity sa pamamagitan ng pagsubaybay sa aming mga blog at pagkuha ng mga quiz sa cybersecurity!</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

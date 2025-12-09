@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Safety Quiz - TechWise</title>
+    <link rel="stylesheet" href="styles/game.css">
+    <style>
+        /* Quiz Specific Overrides */
+        body {
+            background-color: var(--game-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+        }
+
+        #quiz-container {
+            background: white;
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--game-text);
+            margin: 0;
+        }
+
+        .lives-container {
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+        }
+
+        #question {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--game-text);
+            min-height: 80px;
+            /* Prevent layout jump */
+        }
+
+        #options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            padding: 20px;
+            background: var(--game-bg);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #e5e5ea;
+        }
+
+        .option.correct {
+            background: #d1fae5;
+            border-color: var(--game-success);
+            color: #065f46;
+        }
+
+        .option.wrong {
+            background: #fee2e2;
+            border-color: var(--game-danger);
+            color: #991b1b;
+        }
+
+        .option:disabled {
+            cursor: default;
+            opacity: 0.8;
+        }
+
+        #progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d2d2d7;
+            transition: all 0.3s;
+        }
+
+        .dot.filled {
+            background: var(--game-primary);
+        }
+
+        .dot.current {
+            transform: scale(1.5);
+            box-shadow: 0 0 0 2px var(--game-primary);
+        }
+
+        #feedback {
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        #feedback.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #feedback.correct {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        #feedback.wrong {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="quiz-container">
+        <div class="header">
+            <button class="game-btn" style="padding: 8px 16px; font-size: 1rem;"
+                onclick="window.location.href='index.html'">EXIT</button>
+            <div class="lives-container" id="lives-display"></div>
+        </div>
+
+        <div id="progress-dots"></div>
+        <h1 style="margin-bottom: 1rem; font-size: 1.5rem; color: #6e6e73;">Email Safety Mission</h1>
+        <div id="question">Loading Mission...</div>
+        <div id="options"></div>
+        <div id="feedback" hidden></div>
+    </div>
+
+    <script src="scripts/game.js"></script>
+    <script src="scripts/quiz_engine.js"></script>
+    <script>
+        const quizConfig = {
+            quizId: 'email_quiz',
+            questions: [
+                {
+                    id: 1,
+                    question: "Dapat bang mag-click ng link mula sa hindi kilalang email?",
+                    choices: [
+                        { id: 'a', text: "Oo" },
+                        { id: 'b', text: "Hindi" }
+                    ],
+                    correctChoiceId: 'b',
+                    explanation: "Hindi! Ang hindi kilalang links ay madalas na phishing attempts."
+                },
+                {
+                    id: 2,
+                    question: "Ligtas ba ang pagbubukas ng attachment mula sa hindi inaasahan?",
+                    choices: [
+                        { id: 'a', text: "Oo" },
+                        { id: 'b', text: "Hindi" }
+                    ],
+                    correctChoiceId: 'b',
+                    explanation: "Mali. Ang mga attachment ay maaaring maglaman ng malware."
+                },
+                {
+                    id: 3,
+                    question: "Ano ang Two-Factor Authentication (2FA)?",
+                    choices: [
+                        { id: 'a', text: "Dagdag na layer ng seguridad" },
+                        { id: 'b', text: "Isang virus" }
+                    ],
+                    correctChoiceId: 'a',
+                    explanation: "Tama! Ang 2FA ay nagbibigay ng extra proteksyon."
+                },
+                {
+                    id: 4,
+                    question: "Dapat mo bang ibigay ang iyong password sa email support?",
+                    choices: [
+                        { id: 'a', text: "Oo, kung kailangan nila" },
+                        { id: 'b', text: "Hindi kailanman" }
+                    ],
+                    correctChoiceId: 'b',
+                    explanation: "Hindi kailanman hihingin ng lehitimong support ang iyong password."
+                },
+                {
+                    id: 5,
+                    question: "Ano ang dapat gawin sa suspicious email?",
+                    choices: [
+                        { id: 'a', text: "I-delete at i-report" },
+                        { id: 'b', text: "Replyan at tanungin" }
+                    ],
+                    correctChoiceId: 'a',
+                    explanation: "I-report at i-delete ito agad upang maging ligtas."
+                }
+            ]
+        };
+
+        // Initialize Game
+        window.addEventListener('DOMContentLoaded', () => {
+            new QuizEngine(quizConfig);
+        });
+    </script>
+</body>
+
+</html>

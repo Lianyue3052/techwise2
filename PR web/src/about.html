@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TechWise</title>
+    <link rel="stylesheet" href="styles/game.css">
+    <style>
+        .about-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 20px;
+            background: var(--game-bg);
+            border-radius: 20px;
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: #d2d2d7;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .member-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            font-size: 0.9rem;
+            color: #6e6e73;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: var(--game-primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="about-container">
+        <div class="about-header">
+            <h1>About TechWise</h1>
+            <p>Empowering seniors with cybersecurity knowledge through gamified learning.</p>
+        </div>
+
+        <section>
+            <h2 style="text-align:center;">Our Team</h2>
+            <div class="team-grid">
+                <!-- Leader -->
+                <div class="team-card">
+                    <div class="member-avatar">👑</div>
+                    <div class="member-name">Khyer Cedric Bacaoco</div>
+                    <div class="member-role">Leader</div>
+                </div>
+                <!-- Assistant Leader -->
+                <div class="team-card">
+                    <div class="member-avatar">⭐</div>
+                    <div class="member-name">Angel Quigao</div>
+                    <div class="member-role">Assistant Leader</div>
+                </div>
+                <!-- Web Developer -->
+                <div class="team-card">
+                    <div class="member-avatar">💻</div>
+                    <div class="member-name">Joseph Rudolph Caoile</div>
+                    <div class="member-role">Web Developer</div>
+                </div>
+                <!-- Members -->
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Charles Clygel Calpo</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Aeron Lance Lacap</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Fretz Alexa Berzuela</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Carljan Baltazar Toribio</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Ry Decino</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Maryjoy Berbes</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+                <div class="team-card">
+                    <div class="member-avatar">👤</div>
+                    <div class="member-name">Hayden Adasba</div>
+                    <div class="member-role">Team Member</div>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align:center;">
+            <a href="index.html" class="back-btn">← Return to Training</a>
+        </div>
+    </main>
+
+</body>
+
+</html>

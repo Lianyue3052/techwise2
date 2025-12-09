@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Updates - TechWise</title>
+    <link rel="stylesheet" href="styles/game.css">
+    <script src="scripts/game.js" defer></script>
+    <style>
+        body {
+            background: var(--game-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        #quiz-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f0f0f5;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .option:hover {
+            background: #e0e0e5;
+        }
+
+        .option.correct {
+            background: #d1fae5;
+        }
+
+        .option.wrong {
+            background: #fee2e2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="quiz-container">
+        <div class="header">
+            <button class="game-btn" style="padding: 8px 16px; margin-bottom: 20px;"
+                onclick="window.location.href='index.html'">EXIT</button>
+            <div id="lives-display" style="font-size: 1.5rem; margin-bottom: 10px;"></div>
+        </div>
+        <div id="progress-dots" style="display:flex; justify-content:center; gap:5px; margin-bottom:20px;"></div>
+        <h2 id="question" style="margin-bottom: 20px;"></h2>
+        <div id="options"></div>
+        <div id="feedback" style="margin-top: 20px; font-weight: bold;"></div>
+    </div>
+    <script src="scripts/quiz_engine.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new QuizEngine({
+                quizId: 'update_quiz',
+                questions: [
+                    { id: 1, question: "Bakit kailangan i-update ang software?", choices: [{ id: 'a', text: "Para gumanda ang itsura" }, { id: 'b', text: "Para matakpan ang security holes" }], correctChoiceId: 'b', explanation: "Ang updates ay naglalaman ng fix para sa mga security weak points." },
+                    { id: 2, question: "Ano ang gagawin sa 'Update Available' notification?", choices: [{ id: 'a', text: "I-install agad" }, { id: 'b', text: "I-ignore habambuhay" }], correctChoiceId: 'a', explanation: "Huwag patagalin, i-update agad para ligtas." },
+                    { id: 3, question: "Ligtas ba ang lumang Windows version (tulad ng XP)?", choices: [{ id: 'a', text: "Oo" }, { id: 'b', text: "Hindi" }], correctChoiceId: 'b', explanation: "Wala na itong suporta at madaling pasukin ng virus." },
+                    { id: 4, question: "Dapat bang i-on ang Automatic Updates?", choices: [{ id: 'a', text: "Oo" }, { id: 'b', text: "Hindi" }], correctChoiceId: 'a', explanation: "Oo, para hindi mo makalimutan mag-update." },
+                    { id: 5, question: "Kasama ba ang apps sa dapat i-update?", choices: [{ id: 'a', text: "Oo" }, { id: 'b', text: "Hindi" }], correctChoiceId: 'a', explanation: "Dapat updated din ang apps, lalo na ang browser at banking apps." }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

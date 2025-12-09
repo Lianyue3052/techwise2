@@ -1,0 +1,250 @@
+/* Game Theme Variables */
+:root {
+    --game-primary: #0071e3;
+    --game-bg: #f5f5f7;
+    --game-text: #1d1d1f;
+    --game-card-bg: #ffffff;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--game-bg);
+    color: var(--game-text);
+    min-height: 100vh;
+}
+
+/* Animations */
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Toast */
+.game-toast-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 3000;
+}
+
+.game-toast {
+    background: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    animation: popIn 0.3s ease;
+}
+
+/* 3-Column Layout */
+.curriculum-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+/* Section Column */
+.difficulty-section {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.difficulty-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.difficulty-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.diff-easy .difficulty-title {
+    color: #065f46;
+}
+
+.diff-medium .difficulty-title {
+    color: #9a3412;
+}
+
+.diff-hard .difficulty-title {
+    color: #991b1b;
+}
+
+/* Locked Section */
+.locked-section {
+    opacity: 0.8;
+}
+
+.locked-section .mission-grid {
+    filter: blur(4px) grayscale(1);
+    pointer-events: none;
+    user-select: none;
+}
+
+.locked-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none;
+}
+
+.locked-section .locked-overlay {
+    display: block;
+}
+
+/* Mission Card */
+.mission-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: var(--game-text);
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.mission-card.completed {
+    border-color: #34c759;
+    background: #f0fdf4;
+}
+
+.mission-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.mission-desc {
+    font-size: 0.9rem;
+    color: #6e6e73;
+    line-height: 1.4;
+}
+
+.mission-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #34c759;
+    margin-top: 8px;
+    display: block;
+    min-height: 1rem;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+    background: linear-gradient(135deg, #0071e3, #5e5ce6);
+    color: white;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-link {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.about-link:hover {
+    background: white;
+    color: #0071e3;
+}
+
+/* Modal */
+.game-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.game-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.game-btn {
+    background: var(--game-primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}

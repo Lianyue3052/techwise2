@@ -127,7 +127,7 @@ class QuizEngine {
                     <div class="modal-icon">🏆</div>
                     <h2 class="modal-title">Mission Complete!</h2>
                     <p class="modal-message">Training Module Passed based on Ease/Medium/Hard Difficulty.</p>
-                    <button class="game-btn" onclick="window.location.href='index.html'">Main Menu</button>
+                    <button class="game-btn" onclick="window.location.href='main.html'">Main Menu</button>
                     <button class="game-btn" onclick="location.reload()" style="margin-top:10px; background:transparent; color:#0071e3">Replay</button>
                 </div>
             </div>
@@ -143,7 +143,7 @@ class QuizEngine {
                     <h2 class="modal-title">Mission Failed</h2>
                     <p class="modal-message">You ran out of lives!</p>
                     <button class="game-btn" onclick="location.reload()">Try Again</button>
-                    <button class="game-btn" onclick="window.location.href='index.html'" style="margin-top:10px; background:transparent; color:#0071e3">Return to Base</button>
+                    <button class="game-btn" onclick="window.location.href='main.html'" style="margin-top:10px; background:transparent; color:#0071e3">Return to Base</button>
                 </div>
             </div>
         `;

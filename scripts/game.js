@@ -38,18 +38,7 @@ class GameEngine {
     }
 
     isTierUnlocked(tier) {
-        if (tier === 'easy') return true; // Always open
-
-        if (tier === 'medium') {
-            // All Easy quizzes must be done
-            return this.tiers.easy.every(q => this.gameState.completedQuizzes.includes(q));
-        }
-
-        if (tier === 'hard') {
-            // All Medium quizzes must be done
-            return this.tiers.medium.every(q => this.gameState.completedQuizzes.includes(q));
-        }
-        return false;
+        return true; // All tiers unlocked
     }
 
     getQuizStatus(quizId) {

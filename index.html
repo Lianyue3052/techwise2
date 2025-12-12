@@ -4,115 +4,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechWise - Full Curriculum</title>
-  <link rel="stylesheet" href="styles/game.css">
+  <title>TechWise - Cybersecurity Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@300;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0a0c;
+      --bg-accent: #13131a;
+      --primary: #4cc9f0;
+      --secondary: #4361ee;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(76, 201, 240, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 20%);
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+      z-index: 10;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: fadeInDown 1s ease-out forwards;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.8s forwards;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 48px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px -10px rgba(67, 97, 238, 0.6);
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1.2s forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 40px -10px rgba(76, 201, 240, 0.6);
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .cta-btn:hover::after {
+      left: 100%;
+    }
+
+    .glass-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 10s infinite alternate;
+    }
+
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--primary);
+      top: -50px;
+      left: -50px;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--secondary);
+      bottom: -100px;
+      right: -100px;
+      animation-delay: -5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(30px, 30px);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <a href="about.html" class="about-link">About Us</a>
-    <h1>TechWise Academy</h1>
-    <p>Complete the training modules to become a Cybersecurity Expert.</p>
-  </header>
+  <div class="glass-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
 
-  <main class="curriculum-container">
+  <div class="container">
+    <h1 class="hero-title">TechWise</h1>
+    <h2 class="hero-subtitle">A Cybersecurity Guide for Adults</h2>
+    <p class="hero-desc">
+      Navigating the digital world shouldn't be daunting. Join thousands of learners mastering the art of online safety,
+      from securing passwords to outsmarting scammers. Your journey to digital confidence starts here.
+    </p>
+    <a href="main.html" class="cta-btn">Begin Journey</a>
+  </div>
 
-    <!-- SECTION 1: EASY -->
-    <section class="difficulty-section diff-easy" id="section-easy">
-      <div class="difficulty-header">
-        <h2 class="difficulty-title">Rookie (Easy)</h2>
-      </div>
-      <div class="mission-grid">
-        <!-- Mission 1 -->
-        <a href="emailquiz.html" class="mission-card" id="card-email_quiz">
-          <h3 class="mission-title">Email Safety</h3>
-          <p class="mission-desc">Identify safe emails vs spam.</p>
-          <span class="mission-status"></span>
-        </a>
-        <!-- Mission 2 -->
-        <a href="devicequiz.html" class="mission-card" id="card-device_quiz">
-          <h3 class="mission-title">Device Defense</h3>
-          <p class="mission-desc">Protect your phone and tablet.</p>
-          <span class="mission-status"></span>
-        </a>
-        <!-- Mission 3 -->
-        <a href="socialquiz.html" class="mission-card" id="card-social_quiz">
-          <h3 class="mission-title">Social Privacy</h3>
-          <p class="mission-desc">Safe social media habits.</p>
-          <span class="mission-status"></span>
-        </a>
-      </div>
-    </section>
-
-    <!-- SECTION 2: MEDIUM -->
-    <section class="difficulty-section diff-medium locked-section" id="section-medium">
-      <div class="locked-overlay">
-        <h2>🔒 LOCKED</h2>
-        <p>Complete "Rookie" training first.</p>
-      </div>
-      <div class="difficulty-header">
-        <h2 class="difficulty-title">Agent (Medium)</h2>
-      </div>
-      <div class="mission-grid">
-        <!-- Mission 4 -->
-        <a href="passwordquiz.html" class="mission-card" id="card-password_quiz">
-          <h3 class="mission-title">Passwords</h3>
-          <p class="mission-desc">Strong passwords & managers.</p>
-          <span class="mission-status"></span>
-        </a>
-        <!-- Mission 5 -->
-        <a href="2faquiz.html" class="mission-card" id="card-2fa_quiz">
-          <h3 class="mission-title">2FA Shield</h3>
-          <p class="mission-desc">Double your account security.</p>
-          <span class="mission-status"></span>
-        </a>
-        <!-- Mission 6 -->
-        <a href="updatequiz.html" class="mission-card" id="card-update_quiz">
-          <h3 class="mission-title">Updates</h3>
-          <p class="mission-desc">Why updates matter.</p>
-          <span class="mission-status"></span>
-        </a>
-      </div>
-    </section>
-
-    <!-- SECTION 3: HARD -->
-    <section class="difficulty-section diff-hard locked-section" id="section-hard">
-      <div class="locked-overlay">
-        <h2>🔒 LOCKED</h2>
-        <p>Complete "Agent" training first.</p>
-      </div>
-      <div class="difficulty-header">
-        <h2 class="difficulty-title">Veteran (Hard)</h2>
-      </div>
-      <div class="mission-grid">
-        <!-- Mission 7 -->
-        <a href="phishquiz.html" class="mission-card" id="card-phish_quiz">
-          <h3 class="mission-title">Phishing War</h3>
-          <p class="mission-desc">Spotting advanced scams.</p>
-          <span class="mission-status"></span>
-        </a>
-        <!-- Mission 8 -->
-        <a href="malwarequiz.html" class="mission-card" id="card-malware_quiz">
-          <h3 class="mission-title">Malware</h3>
-          <p class="mission-desc">Ransomware & viruses.</p>
-          <span class="mission-status"></span>
-        </a>
-        <!-- Mission 9 -->
-        <a href="wifiquiz.html" class="mission-card" id="card-wifi_quiz">
-          <h3 class="mission-title">Wi-Fi Ops</h3>
-          <p class="mission-desc">Public network dangers.</p>
-          <span class="mission-status"></span>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Game Toast Container -->
-  <div class="game-toast-container"></div>
-
-  <script src="scripts/game.js"></script>
 </body>
 
 </html>
